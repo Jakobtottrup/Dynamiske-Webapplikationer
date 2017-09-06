@@ -247,6 +247,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="46e284c4-410a-4b6d-8df9-61960ca5ca64" name="Default" comment="" />
@@ -254,7 +257,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1504679675849</updated>
-      <workItem from="1504679677262" duration="921000" />
+      <workItem from="1504679677262" duration="2105000" />
     </task>
     <task id="LOCAL-00001" summary="Added .gitignore">
       <created>1504680308145</created>
@@ -267,7 +270,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="921000" />
+    <option name="totallyTimeSpent" value="2105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1022" extended-state="6" />
