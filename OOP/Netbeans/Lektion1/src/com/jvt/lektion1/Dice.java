@@ -9,8 +9,22 @@ package com.jvt.lektion1;
  *
  * @author jakobtottrup
  */
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World");
+public class Dice  {
+    int sides = 6;
+    int face;
+
+    Dice(int numSides) {
+        sides = numSides;
+        
     }
+
+    
+    
+    public int roll(){
+        face = (int) Math.ceil(Math.random() * sides);       
+        return face;
+    }
+    
+    
+    
 }

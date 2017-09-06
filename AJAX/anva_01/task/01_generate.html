@@ -1,0 +1,82 @@
+<html>
+<head>
+   
+<style></style>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/name_gen.js"></script>
+<script>
+   function randInt(min,max){
+      return parseInt( Math.random()* (max+1 - min) ) + min;
+   }
+</script>
+   
+   
+<script>   
+/* 
+// repeat a random number of times, 10 to 20 
+			// 30% are droids , 70% are humans
+			// random name
+			// height in cm
+			// appearsInEpisodes in 
+			//		P({PhantomMenace,AttackOfClones,RevengeOfSith,
+			//			NewHope,EmpireStrikesBack,ReturnOfJedi})
+
+// 1. find a format to record all data; eventually use objects, arrays, and nest them if needed
+// 2. write your data in localstorage
+*/
+
+// ****************************************************************************	
+	var episodeNames = ['PhantomMenace','AttackOfClones','RevengeOfSith',
+						'NewHope','EmpireStrikesBack','ReturnOfJedi'];
+
+	$(function() {
+		$('#generate').on('click',function(){
+			
+			$('#herolist').empty();
+			
+			var txt = '';
+			var times = randInt(10,20);
+			for (var i=0;i<times;i++){
+				
+				txt += (i+1) + ') Hero';
+				if (randInt(0,100)<30){
+					txt += ' <b>R' + randInt(2,9) + 'D' + randInt(500,2100) + '</b>';
+					txt += ' is a <i>droid</i>';
+				} else {
+					txt += ' <b>' + createNewName() + '</b>';
+					txt += ' is a <i>human</i>';
+				}
+				
+				txt += ', is <u>'+ randInt(12,22)*10 +'</u> cm tall';
+				
+				txt += ', and appears in the following episodes:<br/>';
+				var howManyEpisodes = randInt(1,5);
+				var clone = episodeNames.slice(0);
+				for (var j=0;j<howManyEpisodes;j++){
+					var index = randInt(0,clone.length-1);
+					txt += clone[index]+ ' ';
+					clone.splice(index,1); // to avoid repetitions
+					txt += '<br/>';
+				}
+				
+				txt += '<br/>';
+			}
+			$('#herolist').html( txt );
+        });
+
+		// TO DO  
+		// save to localstorage... but in what format?
+       
+	});
+</script>
+
+</head>
+
+<body>
+	<h1>Star Wars Heroes</h1>
+    
+    <button id="generate">Generate!</button>	
+    <div id="herolist">... your heroes go here...</div>
+</body>
+</html>

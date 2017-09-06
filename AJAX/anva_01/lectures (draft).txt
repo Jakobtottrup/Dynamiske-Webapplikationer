@@ -1,0 +1,39 @@
+===================================================
+
+(ANVA) Ajax
+(ANVA) Videregående JavaScript frameworks
+(ANVA) JavaScript frameworks til konstruktion af grafiske brugerinterfaces til forskellige hardwareplatforme
+(ANVA) Standard web services
+(ANVA) Responsive web design ---------> downplay a lot
+(ANVA)(ERSO) Det objekt-orienterede paradigme
+(ERSO)Databaseprogrammering i et objektorienteret sprog
+(ERSO)Relationsdatabaser og SQL
+(ERSO)NO-SQL-databaser
+(ERSO)Interfaces og arv
+(ERSO)Filhåndtering
+(ANVA)Grundlæggende begreber i systemudvikling: kravspecifikation, analyse, design, programmering og test
+(ANVA)Agile og inkrementale systemudviklingsmetoder
+(ANVA)(ERSO)Softwarearkitetur, specielt med vægt på MVC
+
+====================================================
+
+Lectures
+1. intro/plan/exam info
+2. jQuery advanced - chpt 9, traversing, dynamic striping of tables
+3. jQuery advanced - chpt 10 (ajax + wamp), events, binding, event bubbling, custom events, triggering and handling events
+4. jQuery advanced - chpt 11 animations, deferred objects, promises + some procedural animation (js+canvas)
+	(short intro to Three.js, mainly to support the course in "Design of interactive systems for learning" ).
+5. jQuery advanced - chpt 12+13 Advanced DOM Manipulation, restructure page on demand, Advanced Ajax + save/load files via Ajax+JSON
+6. Software development: "Agile og inkrementale systemudviklingsmetoder", XP, planning game, iterations
+   + Grundlæggende begreber i systemudvikling: kravspecifikation, analyse, design, programmering og test
+
+ferie
+
+7. use node+npm +many tools for development: browserify, ES6 translators, (unit) testing -> building web pages based on standard web services (simpleWeather jQuery plugin)
+	Eg "jQuery Plugin to Retrive Data from Social Media Feed"
+8. more npm for dev: building tools, linters, bad smells and refactoring
+9. JavaScript frameworks: you don't need jquery, angular (MVC)
+10. More JavaScript frameworks: jquerymobile (responsive), React??, in-memory DBs
+11. javascript for mobile apps: NativeScript ??? 
+	+ complete front-end + back-end system, with Erik, via node.js server + java sockets
+12. exam preparation

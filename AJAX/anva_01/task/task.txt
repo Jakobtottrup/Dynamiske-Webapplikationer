@@ -1,0 +1,17 @@
+Let's see how much you remember of javascript and jQuery...
+===========================================================
+
+- Look at the files:
+	01_generate.html
+and
+	02_visualize.html
+
+- divide in groups of 2 to 4 people
+- each group: 
+	- start checking out how my example works
+	- define common data format first, to exchange data between the 2 pages
+	- then work on the visualize page
+	- test often, to see if the 2 pages work together
+
+- every group show result to everybody at the end
+
