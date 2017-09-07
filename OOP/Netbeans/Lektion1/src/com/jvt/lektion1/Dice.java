@@ -18,8 +18,6 @@ public class Dice  {
         
     }
 
-    
-    
     public int roll(){
         face = (int) Math.ceil(Math.random() * sides);       
         return face;
