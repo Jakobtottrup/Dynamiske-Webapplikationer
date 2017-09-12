@@ -6,7 +6,6 @@
 package com.jvt.lektion1;
 
 import java.util.Scanner;
-
 /**
  *
  * @author jakobtottrup

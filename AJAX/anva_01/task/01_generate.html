@@ -61,14 +61,22 @@
 				}
 				
 				txt += '<br/>';
+                console.log(txt);
 			}
 			$('#herolist').html( txt );
+            localStorage.setItem('txt', JSON.stringify(txt));
+            var retrievedObject = localStorage.getItem('txt');
+            console.log('retrieved object: ', JSON.parse(retrievedObject));
         });
 
 		// TO DO  
 		// save to localstorage... but in what format?
-       
-	});
+
+
+
+
+
+    });
 </script>
 
 </head>
