@@ -1,0 +1,107 @@
+<html>
+<head>
+   
+<style></style>
+
+<script src="../../../../../../Downloads/anva_01%20solution/task/js/jquery-3.2.1.min.js"></script>
+   
+<script>   
+	$(function() {
+       
+		// 1. read data from localstorage (read all heroes generated previously)
+		// 2. create a table (you decide how the table presents the data)
+		// 3. loop thru data and write rows in the table
+		//    consider creating sub-tables if data has nested data
+		// 4.1 when you click on the name of an episode of Star War, the cell of that hero 
+		//    should change color (highlighted); 
+		// 4.2. Also all cells with a hero who appeared in the same episode should highlight
+	   
+	   
+		// WRITE THE CODE BELOW...
+
+        createTable(JSON.parse(localStorage.getItem("sem3lek1task")));
+
+        function createTable(data) {
+            console.log(data);
+            var table = "<table border='1'>";
+
+            table += "<thead>";
+            table += "<th>name</th>";
+            table += "<th>race</th>";
+            table += "<th>height</th>";
+            table += "<th>episodes</th>";
+            table += "</thead>";
+
+            for (var i = 0; i < data.length; i++) {
+				table += "<tr>";
+				table += "<td style='width: 25%' class='charname'>" + data[i].name + "</td>";
+                table += "<td style='width: 25%'>" + data[i].race + "</td>";
+                table += "<td style='width: 25%'>" + data[i].height + "</td>";
+                table += "<td style='width: 25%'><table>";
+                	for (var j = 0; j < data[i].episodes.length; j++) {
+                	    table += "<tr><td class='episode " + data[i].episodes[j] + "'>" + data[i].episodes[j] + "</td></tr>";
+					}
+                table += "</table></td>";
+				table += "</tr>";
+            }
+
+            table += "</table>";
+
+            $("#this_table").html(table);
+
+			setJquery();
+		}
+
+		function setJquery() {
+            $(".episode").click( function() {
+                $(".charname").removeClass("selected");
+                $(".click_td").removeClass("click_td");
+                $(".episode_td").removeClass("episode_td");
+                $(".otherchars").removeClass("otherchars");
+
+                $(this).addClass("click_td");
+            	$(this).closest("tr").closest("td").closest("tr").find(".charname").addClass("selected");
+                $("." + $(this).html()).addClass("episode_td");
+                $(".episode_td").closest("tr").closest("td").closest("tr").find(".charname").addClass("otherchars");
+            });
+		}
+
+	});
+</script>
+
+	<style>
+		table {
+			width: 100%;
+			max-width: 1000px;
+			text-align: center;
+		}
+
+		.charname {
+			width: 100%;
+			height: 100%;
+		}
+
+		.otherchars {
+			background-color: yellow;
+		}
+
+		.selected {
+			background-color: yellowgreen;
+		}
+
+		.episode_td {
+			color: orange;
+		}
+
+		.click_td {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Table of Star Wars heroes</h1>
+
+	<div id="this_table"></div>
+</body>
+</html>

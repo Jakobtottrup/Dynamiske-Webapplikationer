@@ -1,73 +1,86 @@
 <html>
 <head>
 
-<style></style>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-
-<script>
-	$(function() {
-
-		// 1. read data from localstorage (read all heroes generated previously)
-		// 2. create a table (you decide how the table presents the data)
-		// 3. loop thru data and write rows in the table
-		//    consider creating sub-tables if data has nested data
-		// 4.1 when you click on the name of an episode of Star War, the cell of that hero
-		//    should change color (highlighted);
-		// 4.2. Also all cells with a hero who appeared in the same episode should highlight
-
-
-		// WRITE THE CODE BELOW...
-        var retrievedObject = localStorage.getItem('txt');
-
-
-        //var appears = a_results[1];
-
-
-        for (i = 0; i< (retrievedObject.match(/\)/g) || []).length; i++){
-            var n_pattern = /<b>(.*?)<\/b>/g;
-            var n_results = retrievedObject.match(n_pattern);
-            var name = n_results[i];
-
-            var r_pattern = /<i>(.*?)<\/i>/g;
-            var r_results = retrievedObject.match(r_pattern);
-            var race = r_results[i];
-
-            var h_pattern = /<u>(.*?)<\/u>/g;
-            var h_results = retrievedObject.match(h_pattern);
-            var height = h_results[i];
-
-            //var a_pattern = /(.*?)/g;
-            //var a_results = retrievedObject.match(a_pattern);
-            //var appears = a_results[i];
-         var appears = retrievedObject.match(new RegExp( "<br\/>"+ "(.*?)" +"<br\/>"+"<br\/>" ));
-           // var appears = "asdf";
-            $('#data_insert').append("<tr class='data_row' id='row" + i + "'>" +
-                "<td>" + name + "</td>" +
-                "<td>" + race + "</td>" +
-                "<td>" + height + "</td>" +
-                "<td>" + appears+ "</td></tr>");
+    <style>
+        td {
+            border: 1px solid black;
+            /*
+                       background: #000;
+            */
         }
-	});
-</script>
+    </style>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(function () {
+
+            // 1. read data from localstorage (read all heroes generated previously)
+            // 2. create a table (you decide how the table presents the data)
+            // 3. loop thru data and write rows in the table
+            //    consider creating sub-tables if data has nested data
+            // 4.1 when you click on the name of an episode of Star War, the cell of that hero
+            //    should change color (highlighted);
+            // 4.2. Also all cells with a hero who appeared in the same episode should highlight
+
+
+            // WRITE THE CODE BELOW...
+            var retrievedObject = localStorage.getItem('txt');
+            for (i = 0; i < (retrievedObject.match(/\)/g) || []).length; i++) {
+                var n_pattern = /<b>(.*?)<\/b>/g;
+                var n_results = retrievedObject.match(n_pattern);
+                var name = n_results[i];
+
+                var r_pattern = /<i>(.*?)<\/i>/g;
+                var r_results = retrievedObject.match(r_pattern);
+                var race = r_results[i];
+
+                var h_pattern = /<u>(.*?)<\/u>/g;
+                var h_results = retrievedObject.match(h_pattern);
+                var height = h_results[i];
+
+                var a_pattern = /<br\/>(.*?)<br\/><br\/>/g;
+                var a_results = retrievedObject.match(a_pattern);
+                var appears = a_results[i];
+                //console.log(a_results[i]);
+
+                $('#data_insert').append("<tr class='data_row'>" +
+                    "<td class='data_name'>" + name + "</td>" +
+                    "<td>" + race + "</td>" +
+                    "<td>" + height + "</td>" +
+                    "<td class='data_mov'>" + appears + "</td></tr>");
+            }
+            $("#data_insert > tr > td.data_mov").click(function () {
+                $("#data_insert > tr > td.data_name").css("backgroundColor", "white");
+                $(this).prevAll().eq(2).css("color", "red");
+                var arr = $(this).text().split(" ");
+                arr.pop();
+                for (i = 0; i < arr.length; i++) {
+                    $("td.data_mov").each(function () {
+                        if ($(this).text().match(arr[i])) {
+                            $(this).prevAll().eq(2).css("backgroundColor", "blue");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 
 </head>
-
 <body>
-	<h1>Table of Star Wars heroes</h1>
-    <div class="table-responsive" style="left: 5px; padding: 10px;">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Race</th>
-                <th>Height</th>
-                <th>Appears in</th>
-            </tr>
-
-
-            <tbody id="data_insert">
-            </tbody>
-        </table></div>
+<h1>Table of Star Wars heroes</h1>
+<div class="table-responsive" style="left: 5px; padding: 10px;">
+    <table style="border: 1px solid black">
+        <tr>
+            <th>Name</th>
+            <th>Race</th>
+            <th>Height</th>
+            <th>Appears in</th>
+        </tr>
+        <tbody id="data_insert">
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
