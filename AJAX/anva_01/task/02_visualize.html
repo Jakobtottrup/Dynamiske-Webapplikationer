@@ -8,6 +8,10 @@
                        background: #000;
             */
         }
+
+        .alt {
+            background-color: #5876ff;
+        }
     </style>
 
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -51,12 +55,13 @@
                     "<td class='data_mov'>" + appears + "</td></tr>");
             }
             $("#data_insert > tr > td.data_mov").click(function () {
-                $("#data_insert > tr > td.data_name").css("backgroundColor", "white");
+                $("#data_insert > tr > td.data_name").css("color", "black");
                 $(this).prevAll().eq(2).css("color", "red");
                 var arr = $(this).text().split(" ");
                 arr.pop();
                 for (i = 0; i < arr.length; i++) {
                     $("td.data_mov").each(function () {
+                        $(this).prevAll().eq(2).css("backgroundColor", "white");
                         if ($(this).text().match(arr[i])) {
                             $(this).prevAll().eq(2).css("backgroundColor", "blue");
                         }
@@ -64,6 +69,7 @@
                 }
             });
         });
+
     </script>
 
 </head>
