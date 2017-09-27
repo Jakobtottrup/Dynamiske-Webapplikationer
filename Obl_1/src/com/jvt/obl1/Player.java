@@ -20,28 +20,29 @@ public class Player {
         this.currentField = currentField;
     }
 
-    public int move(DiceCup cup) {
+    public void move(DiceCup cup) {
 
         do {
-            System.out.println(this + " throws ");
+            if ("Mig".equals(this.name)) {
+                System.out.println("Min tur: ");
+            } else if ("Dig".equals(this.name)) {
+                System.out.println("Din tur: ");
+            }
             int steps = cup.throwCup();
             int oldPos = currentField.getNumber();
             int newPos = (oldPos + steps) % MonopolyDriver.monopolyBoard.length;
             currentField = MonopolyDriver.monopolyBoard[newPos];
-            System.out.println(cup + " and landed on " + currentField);
+            System.out.println(cup + "\nNyt felt: " + currentField.getName() + "\n");
             if (newPos < oldPos) {
                 rounds++;
+                System.out.println("\n========= START PASSERET!!!! ===========");
+                //System.out.println("Player1 rounds: " +this.getRounds());
             }
-        }
+        } //Check for dobbebltslag
+        while (cup.isEqual());
 
-            while (cup.isEqual()); 
-        
-        //temp return statement
-        return 0;
-
-
-    
     }
+
     public String getName() {
         return name;
     }
@@ -56,6 +57,10 @@ public class Player {
 
     public void setCurrentField(Field currentField) {
         this.currentField = currentField;
+    }
+
+    int getRounds() {
+        return this.rounds;
     }
 
 }

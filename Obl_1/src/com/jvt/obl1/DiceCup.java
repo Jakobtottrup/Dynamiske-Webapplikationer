@@ -7,6 +7,7 @@ package com.jvt.obl1;
 
 /**
  * Raflebaeger med to vilkaarlige terninger.
+ *
  * @author erso
  */
 public class DiceCup {
@@ -29,12 +30,16 @@ public class DiceCup {
 
     // Tjek for 2 ens
     public boolean isEqual() {
-        return eyes1 == eyes2;  
+        return eyes1 == eyes2;
     }
 
     @Override
     public String toString() {
-        return "DiceCup{" + "eyes1=" + eyes1 + ", eyes2=" + eyes2 + " equal? " + isEqual();
+        if (eyes1 == eyes2) {
+            return "Terning1: " + eyes1 + "\t Terning2: " + eyes2 + " \t\t\tDOBBELTSLAG!";
+        } else {
+            return "Terning1: " + eyes1 + "\t Terning2: " + eyes2;
+        }
     }
 
     /**

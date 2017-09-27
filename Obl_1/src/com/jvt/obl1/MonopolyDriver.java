@@ -32,7 +32,9 @@ public class MonopolyDriver {
             p1.move(cup);
             p2.move(cup);
 
-        } /*mangler slut på do/while*/while (true);
+        } while ((p1.getRounds() <= roundsToStop) || (p2.getRounds() <= roundsToStop));
+        System.out.println("Rounds played:\n" +"Player1: "+ p1.getRounds() + "\nPlayer2: " + p2.getRounds());
+        
                 
     }
 }
