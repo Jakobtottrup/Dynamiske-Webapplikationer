@@ -1,0 +1,24 @@
+<html>
+<body>
+
+<script>
+function f() {
+  console.log("parameters[");
+  for (var i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+  
+  if ( arguments[1]==null ){
+	console.log("there is no 2nd parameter");
+  }
+	
+  console.log("]");
+}
+
+f();
+f(1);
+f("abc",2);
+</script>
+
+</body>
+</html>

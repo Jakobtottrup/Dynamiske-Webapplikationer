@@ -1,0 +1,3 @@
+- install: http://www.wampserver.com/en/
+(MAC? -> http://alternativeto.net/software/xampp/?platform=mac 
+	e.g. MAMP http://alternativeto.net/software/mamp/?platform=mac)

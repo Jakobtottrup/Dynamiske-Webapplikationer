@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>bind demo</title>
+  <style>
+  p {
+    background: yellow;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+  }
+  p.over {
+     background: #ccc;
+  }
+  span {
+    color: red;
+  }
+  </style>
+  <script src="jquery.js"></script>
+</head>
+<body>
+ 
+<p>Click click here.</p>
+<span></span>
+ 
+<script>
+
+// multiple event handler are fired in sequence
+
+$( "p" ).bind( "click", function( event ) {
+  var str = "( " + event.pageX + ", " + event.pageY + " )";
+  $( "span" ).text( "1) Click happened! " + str );
+});
+
+$( "p" ).bind( "click", function( event ) {
+  console.log( "2) thanks for clicking");
+});
+
+</script>
+ 
+</body>
+</html>

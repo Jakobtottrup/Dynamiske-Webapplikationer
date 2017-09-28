@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+            // here I'm sure the XHR message has come from the server
+			document.getElementById("theData").innerHTML = this.responseText;
+            var obj = JSON.parse(this.responseText);
+            console.log( obj );
+            console.log( obj.one );
+		}
+	  };
+	  xhttp.open("GET", "myfile.json", true);
+	  xhttp.send();
+	}
+
+</script>
+</head>
+<body>
+    <h1>AJAX reads json</h1>
+	<div id="theData"></div>
+<script>
+loadDoc();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Particles</title>
+  </head>
+  <body>
+    <h1>Particles in javascript (using canvas)</h1>
+
+<p><b>Instructions</b>
+Just move the mouse around ...
+</p>
+
+<canvas id="canvas" width="600" height="400"></canvas>
+
+<script>
+// Andrea Valente
+
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var height= canvas.height;
+
+// ----- detect mouse position ----
+var mouseCoords = {x:0,y:0};
+
+document.onmousemove = function(event) {
+  mouseCoords = {x : event.pageX-canvas.offsetLeft,
+  					y : event.pageY-canvas.offsetTop};
+}
+
+// -----------------------------------------------------
+
+var HOW_MANY_PARTICLES = 200; // try 200 or 500
+var particles = new Array();
+
+function setup(){
+  for (var i=0;i<HOW_MANY_PARTICLES;i++){
+     particles[i] = new Particle();
+  }
+}
+
+var count=0;
+function draw(){
+
+	ctx.fillStyle = "rgb(230,230,255)";
+	ctx.fillRect (0,0, width, height);
+
+// -----------
+	count++;
+	count = count % width;
+	ctx.fillStyle = "red";
+	ctx.fillRect (count,0, 3,5);
+// -----------
+
+  ctx.strokeStyle = "brown";
+  for (var i=0;i<HOW_MANY_PARTICLES;i++){
+
+		// particle
+		ctx.beginPath();
+		ctx.arc(particles[i].x,particles[i].y, particles[i].mass, 0, Math.PI*2, true);
+		ctx.closePath();
+		ctx.stroke();
+
+		// direction vector
+		ctx.beginPath();
+    	ctx.moveTo(particles[i].x,particles[i].y);
+		ctx.lineTo(particles[i].x + particles[i].dx*10.0,
+					particles[i].y + particles[i].dy*10.0);
+		ctx.closePath();
+		ctx.stroke();
+
+     particles[i].move();
+     if (particles[i].isDead())
+        particles[i] = new Particle();
+  }
+
+  ctx.fillStyle = "blue";
+  ctx.fillRect(mouseCoords.x-2,mouseCoords.y-2, 5,5);
+
+  setTimeout(draw, 20);
+}
+
+// ------- MAIN --------
+setup();
+draw();
+
+// -------------------------------- Particle class ------------------------------------
+
+function Particle(){
+	this.x = mouseCoords.x; //0.0;
+    this.y = mouseCoords.y; //0.0;
+
+    this.dx = Math.random()*2.0 - 1.0;
+	this.dy = Math.random()*2.0 - 1.0;
+
+	this.mass = Math.random()*3 + 1;
+
+	this.ttl = Math.floor(Math.random()*300) + 50; // time to live (measured in frames)
+
+	this.move = function(){
+		this.ttl = this.ttl - 1;
+		if (this.ttl > 0) {
+		  this.dx = this.dx;
+		  this.dy = this.dy + 0.004 * this.mass; // to simulate gravity, try 0.009 or -0.010
+
+		  this.x = this.x + this.dx;
+		  this.y = this.y + this.dy;
+
+		}
+	}
+
+	this.isDead = function(){
+	   return (this.ttl<=0);
+	}
+}
+
+function sign(x){
+   if (x<0) return -1;
+   if (x>0) return +1;
+   return 0;
+}
+
+    </script>
+  </body>
+</html>

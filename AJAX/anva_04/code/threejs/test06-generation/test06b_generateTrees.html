@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Generate trees</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.min.js"></script>
+		<script>
+	// Our Javascript will go here.
+	var scene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	camera.position.z = 12;
+	
+
+	var renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+	
+	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+
+	// changed MeshBasicMaterial to MeshLambertMaterial, which reflects light differently
+	
+	function makeBranch(l,bHeight,col,angle,twist,xAngle){
+		if (angle==undefined){
+			angle = 0.0;
+		}
+		if (twist==undefined){
+			twist = 0.0;
+		}
+		if (xAngle==undefined){
+			xAngle = 0.0;
+		}
+		
+		var tmpMesh;
+		var geometry = new THREE.CylinderGeometry( l,l,bHeight , 20);
+		tmpMesh = new THREE.Mesh( 
+				geometry,
+				new THREE.MeshLambertMaterial( 
+					{ color: col } 
+				)
+			)
+		tmpMesh.position.set(0,bHeight,0);
+		geometry.translate( 0, bHeight/2, 0 ); // translate the point of rotation
+		tmpMesh.rotation.z = angle;		   // then rotate
+		tmpMesh.rotation.y = twist;		   // then rotate again
+		tmpMesh.rotation.x = xAngle;	   // then rotate again
+		return tmpMesh;
+	}
+	
+	
+	var t = makeBranch(0.6,1.0,0x975445);
+	function generateTree(trunk,l,angle,steps){
+		//console.log( steps );
+		if (steps<=0) return;
+		
+		steps--;
+		var temp;
+		if (steps==0){
+			temp = makeBranch(0.1,0.3,0x4da83b,angle,Math.PI/4, Math.PI/4* (Math.random()-0.5) );
+		} else {
+			temp = makeBranch(l,1.0,0x624e2c,angle,Math.PI/4, Math.PI/4* (Math.random()-0.5) );
+		}
+		trunk.add( temp );
+		
+		generateTree(temp,l-0.08,-angle,steps);
+		generateTree(temp,l-0.08,angle,steps);
+		
+	}
+	// try with Math.PI/20;
+	// try with Math.PI/4;
+	// or Math.PI/8;
+	var treeBranchingAngle = Math.PI/8;
+	generateTree(t,0.5,treeBranchingAngle,7);
+	scene.add( t );
+	
+	/*
+		t.add( t2=makeBranch(0.25,0x624e2c) );
+			t2.add( makeBranch(0.20,0x624e2c, Math.PI/8 ) );
+			t2.add( makeBranch(0.20,0x624e2c, -Math.PI/8) );
+		t.add( makeBranch(0.25,0x624e2c, Math.PI/8 ) );
+	*/
+	
+	// lighting, can change the vibe of a scene color so adjust accordingly
+	// adding a bit of ambient lighting to spice things up, color then strength
+	var light = new THREE.AmbientLight(0xD869C0, .9);
+	// adding our ambient light to the scene
+	scene.add(light);
+	// adding directional light, think of this as stage lighting, color then strength
+	var directionalLight = new THREE.DirectionalLight(0xFFBD59, .8);
+
+	// just like stage lighting you need to decide where it's lighting from
+	directionalLight.position.set(1, 1, 1);
+	// adding our directional light to the scene
+	scene.add(directionalLight);
+	
+	
+	// *************************************
+	
+	function animate() {
+		requestAnimationFrame( animate );
+		
+		scene.children[0].rotation.x += 0.005;
+		scene.children[0].rotation.y += 0.01;		
+
+		renderer.render( scene, camera );
+	}
+	animate();
+		</script>
+	</body>
+</html>

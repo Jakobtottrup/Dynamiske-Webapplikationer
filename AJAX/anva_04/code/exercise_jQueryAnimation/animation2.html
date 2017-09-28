@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>animate demo</title>
+  <style>
+  div {
+    background-color: #bca;
+    width: 100px;
+    border: 1px solid green;
+  }
+  </style>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script>
+	$(document).ready(function() {
+
+		$( "#go" ).click(function() {
+		  $( "#block" ).animate({
+			height: 200,
+			width: 400,
+			opacity: 0.5
+		  }, {
+			  duration: 1000,
+			  easing: 'easeOutBounce',
+			  complete: 
+					function() {
+					  $( this ).after( "<div>Animation complete.</div>" );
+					}
+			})
+		});
+		
+	});
+  </script>
+</head>
+<body>
+ 
+<button id="go">&raquo; Run</button>
+<div id="block">Hello!</div>
+ 
+</body>
+</html>

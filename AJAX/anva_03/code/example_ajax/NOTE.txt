@@ -1,0 +1,2 @@
+this should run from a server folder, but if you are using Brackets,
+the "live preview" will make it work :)
