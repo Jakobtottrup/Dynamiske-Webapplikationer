@@ -63,4 +63,8 @@ public class Player {
         return this.rounds;
     }
 
+    void setCurrentField(int JAIL_POS) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
