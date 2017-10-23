@@ -12,10 +12,10 @@ package com.jvt.obl1;
 public class Player {
 
     private String name;
-    private Field currentField;
+    private OwnableField currentField;
     private int rounds;
 
-    public Player(String name, Field currentField) {
+    public Player(String name, OwnableField currentField) {
         this.name = name;
         this.currentField = currentField;
     }
@@ -51,11 +51,11 @@ public class Player {
         this.name = name;
     }
 
-    public Field getCurrentField() {
+    public OwnableField getCurrentField() {
         return currentField;
     }
 
-    public void setCurrentField(Field currentField) {
+    public void setCurrentField(OwnableField currentField) {
         this.currentField = currentField;
     }
 

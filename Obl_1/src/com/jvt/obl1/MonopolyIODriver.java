@@ -23,7 +23,13 @@ public class MonopolyIODriver extends MonopolyDriver {
     
     @Override
     public void fillBoard() {
-       
+        System.out.println("Testing filereader");
+        //Læs fra fil monopolydata.txt
+        
+        
+//               for (int i = 0; i < monopolyBoard.length; i++) {
+//            monopolyBoard[i] = new Field("Field" + i, i);
+//        }
     }
     
 }
