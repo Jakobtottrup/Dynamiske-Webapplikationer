@@ -14,9 +14,9 @@ public class MonopolyDriver {
     public static FieldInterface[] monopolyBoard = new FieldInterface[40];
 
     public void fillBoard() {
-        for (int i = 0; i < monopolyBoard.length; i++) {
+        /*for (int i = 0; i < monopolyBoard.length; i++) {
             monopolyBoard[i] = new StreetField("yo", i, 2);
-        }
+        }*/
     }
 
     public static void main(String[] args) {

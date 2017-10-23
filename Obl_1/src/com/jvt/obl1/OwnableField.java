@@ -9,13 +9,19 @@ public abstract class OwnableField implements FieldInterface{
     private String name;
     private int number;
     private int price;
+    private int rent;
     private Player owner;
 
-    protected OwnableField(String name, int number, int price)
+    protected OwnableField(String name, int number, int price, int rent)
     {
         this.name = name;
         this.number = number;
         this.price = price;
+        this.rent = rent;
+    }
+
+    public int getRent() {
+        return rent;
     }
 
     @Override

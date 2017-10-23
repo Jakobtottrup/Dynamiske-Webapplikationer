@@ -11,8 +11,8 @@ package com.jvt.obl1;
  */
 public class ShipField extends OwnableField{
 
-    public ShipField(String name, int number, int price) {
-        super(name, number, price);
+    public ShipField(String name, int number, int price, int rent) {
+        super(name, number, price, rent);
     }
 
     @Override

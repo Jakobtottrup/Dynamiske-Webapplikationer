@@ -34,6 +34,12 @@ public class GoToJailField implements FieldInterface
         poorPlayer.setCurrentField(MonopolyConstants.JAIL_POS);
         
     }
+
+   
+
+  
+
+
     
     
 

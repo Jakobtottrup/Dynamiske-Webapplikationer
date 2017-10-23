@@ -9,16 +9,28 @@ package com.jvt.obl1;
  *
  * @author jakobtottrup
  */
-public class OtherField extends OwnableField {
+public class OtherField implements FieldInterface {
 
-    public OtherField(String name, int number, int price) {
-        super(name, number, price);
-    }
-
- 
+    String name = "";
+    int number;
+    
+    public OtherField(String name, int number) {
+        this.name = name;
+        this.number = number;
+    }    
+    
     @Override
     public void consequence(Player poorPlayer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
     
 }

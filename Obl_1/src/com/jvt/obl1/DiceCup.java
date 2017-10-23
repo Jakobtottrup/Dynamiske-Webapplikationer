@@ -36,22 +36,11 @@ public class DiceCup {
     @Override
     public String toString() {
         if (eyes1 == eyes2) {
-            return "Terning1: " + eyes1 + "\t Terning2: " + eyes2 + " \t\t\tDOBBELTSLAG!";
+            return "Terning1: " + (eyes1 + 1) + "\t Terning2: " + (eyes2 + 1) + " \t\t\tDOBBELTSLAG!";
         } else {
-            return "Terning1: " + eyes1 + "\t Terning2: " + eyes2;
+            return "Terning1: " + (eyes1 + 1) + "\t Terning2: " + (eyes2 + 1);
         }
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        DiceCup cup = new DiceCup(6);
-        for (int i = 0; i < 12; i++) {   // Slaar tolv gange
-            System.out.print("" + cup.throwCup());
-            System.out.println("\t" + cup);  // Kalder automatisk toString() metoden
-        }
-    }
 
 }

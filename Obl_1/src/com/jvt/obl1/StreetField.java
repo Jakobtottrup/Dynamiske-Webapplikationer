@@ -11,8 +11,8 @@ package com.jvt.obl1;
  */
 public class StreetField extends OwnableField {
 
-    public StreetField(String name, int number, int price) {
-        super(name, number, price);
+    public StreetField(String name, int number, int price, int rent) {
+        super(name, number, price, rent);
     }
 
     @Override

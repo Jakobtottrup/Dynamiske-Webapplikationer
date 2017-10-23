@@ -11,13 +11,14 @@ package com.jvt.obl1;
  */
 public class BreweryField extends OwnableField{
     
-    public BreweryField(String name, int number, int price) {
-        super(name, number, price);
+    public BreweryField(String name, int number, int price, int rent) {
+        super(name, number, price, rent);
     }
 
     @Override
     public void consequence(Player poorPlayer) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
     
 }
