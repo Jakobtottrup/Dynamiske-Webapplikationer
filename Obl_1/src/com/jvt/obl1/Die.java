@@ -27,7 +27,7 @@ public class Die {
     }
 
     public int throwDie() {
-        return generator.nextInt(sides) + 1;
+        return generator.nextInt(sides)+1;
     }
     
     

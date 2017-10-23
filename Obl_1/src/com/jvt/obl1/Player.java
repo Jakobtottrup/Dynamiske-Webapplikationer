@@ -12,10 +12,10 @@ package com.jvt.obl1;
 public class Player {
 
     private String name;
-    private OwnableField currentField;
+    private FieldInterface currentField;
     private int rounds;
 
-    public Player(String name, OwnableField currentField) {
+    public Player(String name, FieldInterface currentField) {
         this.name = name;
         this.currentField = currentField;
     }
@@ -31,8 +31,8 @@ public class Player {
             int steps = cup.throwCup();
             int oldPos = currentField.getNumber();
             int newPos = (oldPos + steps) % MonopolyDriver.monopolyBoard.length;
-            currentField = MonopolyDriver.monopolyBoard[newPos];
-            System.out.println(cup + "\nNyt felt: " + currentField.getName() + "\n");
+            currentField =  MonopolyDriver.monopolyBoard[newPos];
+            System.out.println(cup + "\nNyt felt: " +currentField.getNumber()+": "+currentField.getName() + "\n");
             if (newPos < oldPos) {
                 rounds++;
                 System.out.println("\n========= START PASSERET!!!! ===========");
@@ -51,11 +51,11 @@ public class Player {
         this.name = name;
     }
 
-    public OwnableField getCurrentField() {
+    public FieldInterface getCurrentField() {
         return currentField;
     }
 
-    public void setCurrentField(OwnableField currentField) {
+    public void setCurrentField(FieldInterface currentField) {
         this.currentField = currentField;
     }
 

@@ -11,7 +11,7 @@ package com.jvt.obl1;
  */
 public class MonopolyDriver {
 
-    public static OwnableField[] monopolyBoard = new OwnableField[40];
+    public static FieldInterface[] monopolyBoard = new FieldInterface[40];
 
     public void fillBoard() {
         for (int i = 0; i < monopolyBoard.length; i++) {
@@ -24,8 +24,8 @@ public class MonopolyDriver {
         MonopolyDriver driver = new MonopolyIODriver(2, "MonopolyData.txt");
         driver.fillBoard();
 
-        Player p1 = new Player("Mig", monopolyBoard[0]);
-        Player p2 = new Player("Dig", monopolyBoard[0]);
+        Player p1 = new Player("Mig",  monopolyBoard[0]);
+        Player p2 = new Player("Dig",  monopolyBoard[0]);
         DiceCup cup = new DiceCup(6);
 
         do {
