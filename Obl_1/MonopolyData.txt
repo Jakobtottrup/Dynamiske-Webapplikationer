@@ -10,11 +10,7 @@
 9	Allégade	pink	120	8
 10	Fængsel	jail
 11	Frederiksberg Allé	green	140	10
-<<<<<<< HEAD
 12	Tuborg	brewery	150	0
-=======
-12	Tuborg	brewery	150
->>>>>>> origin/master
 13	Bülowsvej	green	140	10
 14	Gl. Kongenvej	green	160	12
 15	D.F.D.S.	ship	200	25
@@ -30,11 +26,7 @@
 25	Ø.K.	ship	200	25
 26	Bredgade	white	260	22
 27	Kg. Nytorv	white	260	22
-<<<<<<< HEAD
 28	Carlsberg	brewery	150	0
-=======
-28	Carlsberg	brewery	150
->>>>>>> origin/master
 29	Østergade	white	280	22
 30	Gå i Fængsel	go2jail
 31	Amagertorv	yellow	300	26
