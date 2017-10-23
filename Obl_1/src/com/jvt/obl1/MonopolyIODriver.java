@@ -36,6 +36,7 @@ public class MonopolyIODriver extends MonopolyDriver {
         }
 
         for (int i = 0; i < monopolyBoard.length; i++) {
+            
             switch (i) {
 // Andre felter:
                 case 1:

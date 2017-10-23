@@ -36,9 +36,9 @@ public class DiceCup {
     @Override
     public String toString() {
         if (eyes1 == eyes2) {
-            return "Terning1: " + eyes1 + "\t Terning2: " + eyes2 + " \t\t\tDOBBELTSLAG!";
+            return "Terning1: " + (eyes1+1) + "\t Terning2: " + (eyes2+1) + " \t\t\tDOBBELTSLAG!";
         } else {
-            return "Terning1: " + eyes1 + "\t Terning2: " + eyes2;
+            return "Terning1: " + (eyes1+1) + "\t Terning2: " + (eyes2+1);
         }
     }
 

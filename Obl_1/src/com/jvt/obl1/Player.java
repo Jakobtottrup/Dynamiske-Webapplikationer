@@ -28,10 +28,12 @@ public class Player {
             } else if ("Dig".equals(this.name)) {
                 System.out.println("Din tur: ");
             }
-            int steps = cup.throwCup();
+            int steps = cup.throwCup()+1;
+            System.out.println("Nuværende felt:\t" + currentField.getNumber()+": "+currentField.getName());
             int oldPos = currentField.getNumber();
             int newPos = (oldPos + steps) % MonopolyDriver.monopolyBoard.length;
             currentField =  MonopolyDriver.monopolyBoard[newPos];
+            
             System.out.println(cup + "\nNyt felt: " +currentField.getNumber()+": "+currentField.getName() + "\n");
             if (newPos < oldPos) {
                 rounds++;
