@@ -24,9 +24,9 @@ public class Player {
 
         do {
             if ("Mig".equals(this.name)) {
-                System.out.println("Min tur: ");
+                System.out.println("\033[31mSpiller1: \033[0m");
             } else if ("Dig".equals(this.name)) {
-                System.out.println("Din tur: ");
+                System.out.println("\033[34mSpiller2: \033[0m");
             }
             int steps = cup.throwCup()+1;
 

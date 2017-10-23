@@ -76,7 +76,7 @@ public class MonopolyIODriver extends MonopolyDriver {
                         buy_price = Integer.parseInt(tokens[3]);
                         //rent_price = Integer.parseInt(tokens[4]);
                         rent_price = 2;
-                        fieldlist.add(new BreweryField(name + "\tPris: " + buy_price + "\tLeje: " + rent_price, boardIndex, buy_price, rent_price));
+                        fieldlist.add(new BreweryField(name + "\t \033[31mPris:\033[32m" + buy_price + "\tLeje: " + rent_price, boardIndex, buy_price, rent_price));
                         //monopolyBoard[i] = new BreweryField(MonopolyConstants.FIELD_NAMES[i], i + 1, 150);
                         break;
 // Gader:
