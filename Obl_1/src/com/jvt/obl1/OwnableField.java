@@ -5,13 +5,13 @@ package com.jvt.obl1;
  *
  * @author erso
  */
-public abstract class OwnebleField implements FieldInterface{
+public abstract class OwnableField implements FieldInterface{
     private String name;
     private int number;
     private int price;
     private Player owner;
 
-    protected OwnebleField(String name, int number, int price)
+    protected OwnableField(String name, int number, int price)
     {
         this.name = name;
         this.number = number;

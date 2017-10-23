@@ -13,7 +13,7 @@ public class MonopolyDriver {
 
     public static Field[] monopolyBoard = new Field[40];
 
-    public static void fillBoard() {
+    public void fillBoard() {
         for (int i = 0; i < monopolyBoard.length; i++) {
             monopolyBoard[i] = new Field("Field" + i, i);
         }

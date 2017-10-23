@@ -18,11 +18,12 @@ public class MonopolyIODriver extends MonopolyDriver {
         this.fileName = fileName;
 
     }
-
     
-//    @Override
-//    public void fillBoard() {
-//        //indlæsning fra fil
-//    }
+    
+    
+    @Override
+    public void fillBoard() {
+       
+    }
     
 }
