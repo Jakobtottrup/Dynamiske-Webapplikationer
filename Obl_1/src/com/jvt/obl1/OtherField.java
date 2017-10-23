@@ -21,7 +21,7 @@ public class OtherField implements FieldInterface {
     
     @Override
     public void consequence(Player poorPlayer) {
-        System.out.print(" landede på: "+ "\033[35m"+ this.getName() +" ("+ (this.getNumber()+1)+ ")\033[0m");
+        System.out.print("Du landede på: "+ "\033[35m"+ this.getName() +" ("+ (this.getNumber()+1)+ ")\033[0m");
     }
 
     public String getName() {
@@ -30,6 +30,11 @@ public class OtherField implements FieldInterface {
 
     public int getNumber() {
         return number;
+    }
+
+    @Override
+    public String info() {
+        return "";
     }
 
     

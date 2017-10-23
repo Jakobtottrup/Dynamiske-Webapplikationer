@@ -17,7 +17,13 @@ public class BreweryField extends OwnableField{
 
     @Override
     public void consequence(Player poorPlayer) {
-        System.out.print(" landede på: "+ "\033[33m"+ this.getName() +" ("+ (this.getNumber()+1)+ ")\033[0m");
+        System.out.print("Du landede på: "+ "\033[33m"+ this.getName() +" ("+ (this.getNumber()+1)+ ")\033[0m");
+        
+    }
+
+    @Override
+    public String info() {
+        return "Pris: " + this.getPrice() + "\tLeje: " + this.getRent();
     }
 
     

@@ -8,7 +8,7 @@ package com.jvt.obl1;
 public abstract class OwnableField implements FieldInterface{
     private String name;
     private int number;
-    private int price;
+    int price;
     private int rent;
     private Player owner;
 

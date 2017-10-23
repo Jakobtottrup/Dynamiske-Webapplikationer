@@ -36,6 +36,11 @@ public class GoToJailField implements FieldInterface
         
     }
 
+    @Override
+    public String info() {
+        return "DETTE ER FÆNGSELET";
+    }
+
    
 
   

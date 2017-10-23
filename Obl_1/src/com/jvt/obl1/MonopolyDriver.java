@@ -24,16 +24,17 @@ public class MonopolyDriver {
         MonopolyDriver driver = new MonopolyIODriver(2, "MonopolyData.txt");
         driver.fillBoard();
 
-        Player p1 = new Player("Spiller1",  monopolyBoard[0]);
-        Player p2 = new Player("Spiller2",  monopolyBoard[0]);
+        Player p1 = new Player("Spiller1",  monopolyBoard[0], MonopolyConstants.START_MONEY);
+        Player p2 = new Player("Spiller2",  monopolyBoard[0], MonopolyConstants.START_MONEY);
         DiceCup cup = new DiceCup(6);
-
+        System.out.println(p1.getBalance());
+        System.out.println(p2.getBalance());
         do {
             p1.move(cup);
             p2.move(cup);
 
-        } while ((p1.getRounds() <= roundsToStop) || (p2.getRounds() <= roundsToStop));
-        System.out.println("Rounds played:\n" + "Player1: " + p1.getRounds() + "\nPlayer2: " + p2.getRounds());
+        } while ((p1.getBalance() > 0) || (p2.getBalance() > 0));
+        System.out.println("Penge på kontoen:\n" + "Spiller1: " + p1.getBalance() + "\nSpiller2: " + p2.getBalance());
 
     }
 }

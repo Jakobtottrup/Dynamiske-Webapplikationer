@@ -11,13 +11,15 @@ package com.jvt.obl1;
  */
 public class Player {
 
+    private int balance;
     private String name;
     private FieldInterface currentField;
     private int rounds;
 
-    public Player(String name, FieldInterface currentField) {
+    public Player(String name, FieldInterface currentField, int balance) {
         this.name = name;
         this.currentField = currentField;
+        this.balance = balance;
     }
 
     public void move(DiceCup cup) {
@@ -30,19 +32,23 @@ public class Player {
             } else if ("Spiller2".equals(this.name)) {
                 System.out.print("\033[43mSpiller2\033[0m");
             }
-            System.out.print(" står på " + currentField.getName() + " (" +  (currentField.getNumber()+1) +  "), og");
+            System.out.print(" står på " + currentField.getName() + " (" +  (currentField.getNumber()+1) +  "), og slog "+cup);
             //System.out.println("Nuværende felt#: " + currentField.getNumber()+" \tNavn: "+currentField.getName());
             int oldPos = currentField.getNumber();
             int newPos = (oldPos + steps) % MonopolyDriver.monopolyBoard.length;
             currentField = MonopolyDriver.monopolyBoard[newPos];
 
             //System.out.println(cup + "\nNyt felt: " +currentField.getNumber()+": "+currentField.getName() + "\n");
+           
             currentField.consequence(this);
-            System.out.print(" Efter at have slået: ");
-            System.out.println(cup);
+            
+           // System.out.print(cup);
+            System.out.println(currentField.info()+"\n");
             if (newPos < oldPos) {
                 rounds++;
+                this.balance+=200;
                 System.out.println("\n========= START PASSERET!!!! ===========");
+                System.out.println(this.getName() + " har " + this.getBalance() + "kr. på kontoen.");
                 //System.out.println("Player1 rounds: " +this.getRounds());
             }
 
@@ -73,6 +79,14 @@ public class Player {
 
     void setCurrentField(int JAIL_POS) {
         currentField = MonopolyDriver.monopolyBoard[10];
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
 }

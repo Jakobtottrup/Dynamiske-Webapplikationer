@@ -10,5 +10,6 @@ public interface FieldInterface
     // Disse metoder er underforstået 'public abstract static': 
     String getName();
     int getNumber();
-    void consequence(Player poorPlayer);    
+    void consequence(Player poorPlayer);
+    String info();
 }
