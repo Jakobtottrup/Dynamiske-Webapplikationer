@@ -1,0 +1,40 @@
+0	Startfelt	start
+1	RÃ¸dovrevej	blue	60	2
+2	PrÃ¸v Lykken	?
+3	Hvidovre	blue	60	4
+4	Indkomstskat	tax
+5	Ã˜resund A/S	ship	200	25
+6	Roskildevej	pink	100	6
+7	PrÃ¸v Lykken	?
+8	Valby Langgade	pink	100	6
+9	AllÃ©gade	pink	120	8
+10	FÃ¦ngsel	jail
+11	Frederiksberg AllÃ©	green	140	10
+12	Tuborg	brewery	150
+13	BÃ¼lowsvej	green	140	10
+14	Gl. Kongenvej	green	160	12
+15	D.F.D.S.	ship	200	25
+16	Bernstoffsvej	grey	180	14
+17	PrÃ¸v Lykken	?
+18	Hellerupvej	grey	180	14
+19	Strandvej	grey	200	16
+20	Helle	parking
+21	Trianglen	red	220	18
+22	PrÃ¸v Lykken	?
+23	Ã˜sterbrogade	red	220	18
+24	GrÃ¸nningen	red	240	20
+25	Ã˜.K.	ship	200	25
+26	Bredgade	white	260	22
+27	Kg. Nytorv	white	260	22
+28	Carlsberg	brewery	150
+29	Ã˜stergade	white	280	22
+30	GÃ¥ i FÃ¦ngsel	go2jail
+31	Amagertorv	yellow	300	26
+32	Vimmelskaftet	yellow	300	26
+33	PrÃ¸v Lykken	?
+34	Nygade	yellow	320	28
+35	D/S Bornholm	ship	150	25
+36	PrÃ¸v Lykken	?
+37	Frederiksberggade	brown	350	35
+38	Ekstra Skat	tax
+39	RÃ¥dhuspladsen	brown	400	50

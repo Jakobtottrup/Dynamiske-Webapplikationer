@@ -21,9 +21,13 @@ public class MonopolyDriver {
 
     public static void main(String[] args) {
         int roundsToStop = 3;
-
-        MonopolyDriver md = new MonopolyDriver();
-        MonopolyDriver.fillBoard();
+        MonopolyDriver driver
+                //= new MonopolyDriver(2); //udkommentér den gamle driver
+                = new MonopolyIODriver(2, "MonopolyData.txt");// og Brug denne driver.fillFields();
+        driver.fillBoard();
+        //driver.play();
+        //MonopolyDriver md = new MonopolyDriver();
+       // MonopolyDriver.fillBoard();
         Player p1 = new Player("Mig", monopolyBoard[0]);
         Player p2 = new Player("Dig", monopolyBoard[0]);
         DiceCup cup = new DiceCup(6);
@@ -33,8 +37,7 @@ public class MonopolyDriver {
             p2.move(cup);
 
         } while ((p1.getRounds() <= roundsToStop) || (p2.getRounds() <= roundsToStop));
-        System.out.println("Rounds played:\n" +"Player1: "+ p1.getRounds() + "\nPlayer2: " + p2.getRounds());
-        
-                
+        System.out.println("Rounds played:\n" + "Player1: " + p1.getRounds() + "\nPlayer2: " + p2.getRounds());
+
     }
 }
