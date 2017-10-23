@@ -23,24 +23,29 @@ public class Player {
     public void move(DiceCup cup) {
 
         do {
-            if ("Mig".equals(this.name)) {
-                System.out.println("\033[31mSpiller1: \033[0m");
-            } else if ("Dig".equals(this.name)) {
-                System.out.println("\033[34mSpiller2: \033[0m");
-            }
-            int steps = cup.throwCup()+1;
 
-            System.out.println("Nuværende felt:\t" + currentField.getNumber()+": "+currentField.getName());
+            int steps = cup.throwCup() + 2;
+            if ("Spiller1".equals(this.name)) {
+                System.out.print("\033[41mSpiller1\033[0m");
+            } else if ("Spiller2".equals(this.name)) {
+                System.out.print("\033[43mSpiller2\033[0m");
+            }
+            System.out.print(" står på " + currentField.getName() + " (" +  (currentField.getNumber()+1) +  "), og");
+            //System.out.println("Nuværende felt#: " + currentField.getNumber()+" \tNavn: "+currentField.getName());
             int oldPos = currentField.getNumber();
             int newPos = (oldPos + steps) % MonopolyDriver.monopolyBoard.length;
-            currentField =  MonopolyDriver.monopolyBoard[newPos];
-            
-            System.out.println(cup + "\nNyt felt: " +currentField.getNumber()+": "+currentField.getName() + "\n");
+            currentField = MonopolyDriver.monopolyBoard[newPos];
+
+            //System.out.println(cup + "\nNyt felt: " +currentField.getNumber()+": "+currentField.getName() + "\n");
+            currentField.consequence(this);
+            System.out.print(" Efter at have slået: ");
+            System.out.println(cup);
             if (newPos < oldPos) {
                 rounds++;
                 System.out.println("\n========= START PASSERET!!!! ===========");
                 //System.out.println("Player1 rounds: " +this.getRounds());
             }
+
         } //Check for dobbebltslag
         while (cup.isEqual());
 
@@ -67,7 +72,7 @@ public class Player {
     }
 
     void setCurrentField(int JAIL_POS) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        currentField = MonopolyDriver.monopolyBoard[10];
     }
 
 }

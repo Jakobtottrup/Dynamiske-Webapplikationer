@@ -32,6 +32,7 @@ public class GoToJailField implements FieldInterface
     public void consequence(Player poorPlayer)
     {
         poorPlayer.setCurrentField(MonopolyConstants.JAIL_POS);
+        System.out.println("DU ER I FÆNGSEL");
         
     }
 

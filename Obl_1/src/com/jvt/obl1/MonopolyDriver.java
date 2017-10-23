@@ -24,8 +24,8 @@ public class MonopolyDriver {
         MonopolyDriver driver = new MonopolyIODriver(2, "MonopolyData.txt");
         driver.fillBoard();
 
-        Player p1 = new Player("Mig",  monopolyBoard[0]);
-        Player p2 = new Player("Dig",  monopolyBoard[0]);
+        Player p1 = new Player("Spiller1",  monopolyBoard[0]);
+        Player p2 = new Player("Spiller2",  monopolyBoard[0]);
         DiceCup cup = new DiceCup(6);
 
         do {

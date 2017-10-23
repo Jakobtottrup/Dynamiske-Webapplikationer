@@ -21,7 +21,7 @@ public class OtherField implements FieldInterface {
     
     @Override
     public void consequence(Player poorPlayer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print(" landede på: "+ "\033[35m"+ this.getName() +" ("+ (this.getNumber()+1)+ ")\033[0m");
     }
 
     public String getName() {
