@@ -38,18 +38,18 @@ public class MonopolyIODriver extends MonopolyDriver {
                 type = tokens[2];
                 switch (boardIndex + 1) {
 // Andre felter:
-                    case 1:
-                    case 3:
-                    case 5:
-                    case 8:
-                    case 11:
-                    case 18:
-                    case 21:
-                    case 23:
-                    case 34:
-                    case 37:
-                    case 39:
-                        fieldlist.add(new OtherField(name, boardIndex));
+                    case 1:     //start
+                    case 3:     //prøv lykken
+                    case 5:     //indkomstskat
+                    case 8:     //prøv lykken
+                    case 11:    //Fængsel
+                    case 18:    //prøv lykken
+                    case 21:    //Helle parkering
+                    case 23:    //prøv lykken
+                    case 34:    //prøv lykken
+                    case 37:    //prøv lykken
+                    case 39:    //ekstra skat
+                        fieldlist.add(new OtherField(name, boardIndex, type));
                         break;
 // Gå i spjældet:
                     case 31:

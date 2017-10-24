@@ -15,6 +15,7 @@ public class Player {
     private String name;
     private FieldInterface currentField;
     private int rounds;
+    public Player other;
 
     public Player(String name, FieldInterface currentField, int balance) {
         this.name = name;
@@ -32,23 +33,25 @@ public class Player {
             } else if ("Spiller2".equals(this.name)) {
                 System.out.print("\033[43mSpiller2\033[0m");
             }
-            System.out.print(" står på " + currentField.getName() + " (" +  (currentField.getNumber()+1) +  "), og slog "+cup);
+            System.out.print(" står på " + currentField.getName() + " (" + (currentField.getNumber() + 1) + "), og slog " + cup + "Du har " + this.getBalance() + "kr.\n");
             //System.out.println("Nuværende felt#: " + currentField.getNumber()+" \tNavn: "+currentField.getName());
             int oldPos = currentField.getNumber();
             int newPos = (oldPos + steps) % MonopolyDriver.monopolyBoard.length;
             currentField = MonopolyDriver.monopolyBoard[newPos];
 
             //System.out.println(cup + "\nNyt felt: " +currentField.getNumber()+": "+currentField.getName() + "\n");
+
            
             currentField.consequence(this);
-            
-           // System.out.print(cup);
-            System.out.println(currentField.info()+"\n");
+
+            // System.out.print(cup);
+           // System.out.println(currentField.info() + "\n");
+            System.out.println("\n");
             if (newPos < oldPos) {
                 rounds++;
-                this.balance+=200;
+                this.balance += 200;
                 System.out.println("\n========= START PASSERET!!!! ===========");
-                System.out.println(this.getName() + " har " + this.getBalance() + "kr. på kontoen.");
+                System.out.println(this.getName() + " har " + this.getBalance() + "kr. på kontoen.\n\n");
                 //System.out.println("Player1 rounds: " +this.getRounds());
             }
 
@@ -87,6 +90,12 @@ public class Player {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+    public void changeBalance(int balance){
+        this.balance += balance;
+    }
+    public void showBalance(){
+        System.out.println("Du har " + balance + "kr.");
     }
 
 }
