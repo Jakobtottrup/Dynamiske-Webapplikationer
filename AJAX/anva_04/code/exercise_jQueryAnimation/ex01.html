@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>animate demo</title>
+    <style>
+        body {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .block {
+            float: left;
+            background-color: #BCA;
+            width: 100px;
+            border: 1px solid green;
+            margin: 10px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script>
+
+
+        const ease = [
+            "easeInSine",
+            "easeOutSine",
+            "easeInOutSine",
+            "easeInQuad",
+            "easeOutQuad",
+            "easeInOutQuad",
+            "easeInCubic",
+            "easeOutCubic",
+            "easeInOutCubic",
+            "easeInQuart",
+            "easeOutQuart",
+            "easeInOutQuart",
+            "easeInQuint",
+            "easeOutQuint",
+            "easeInOutQuint",
+            "easeInExpo",
+            "easeOutExpo",
+            "easeInOutExpo",
+            "easeInCirc",
+            "easeOutCirc",
+            "easeInOutCirc",
+            "easeInBack",
+            "easeOutBack",
+            "easeInOutBack",
+            "easeInElastic",
+            "easeOutElastic",
+            "easeInOutElastic",
+            "easeInBounce",
+            "easeOutBounce",
+            "easeInOutBounce"
+        ];
+        const color = ["red", "blue", "green", "yellow", "black", "orange"];
+        $(document).ready(function () {
+
+            // chain multiple animations!
+            $(".block").click(function () {
+                let h = Math.floor(Math.random() * 200) + 100;
+                let w = Math.floor(Math.random() * 200) + 100;
+                let dur = Math.floor(Math.random() * 1000) + 100;
+                $(this).css("background-color", "blue");
+                $(this)
+                    .animate({
+                        height: h,
+                        width: w,
+                        opacity: 0.5
+                    }, {
+                        duration: dur,
+                        easing: 'easeOutElastic',
+
+                    })
+            });
+            $("#go").click(function () {
+                $(".block").each(function () {
+                    let h = Math.floor(Math.random() * 200) + 100;
+                    let w = Math.floor(Math.random() * 200) + 100;
+                    let dur = Math.floor(Math.random() * 2000) + 1000;
+                    let o = Math.random()*1 + 0.2;
+                    let i = Math.floor(Math.random() * 30);
+                    let j = Math.floor(Math.random() * 6);
+                    $(this).css("background-color", color[j]);
+                    $(this).animate({
+                        height: h,
+                        width: w,
+                        opacity: o
+                    }, {
+                        duration: dur,
+                        easing: ease[i],
+                    })
+                })
+            })
+
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+<button id="go">&raquo; Run</button>
+<div class="block">Hello1</div>
+<div class="block">Hello2</div>
+<div class="block">Hello3</div>
+<div class="block">Hello4</div>
+<div class="block">Hello5</div>
+<div class="block">Hello6</div>
+
+
+<!--
+<div>Something here, something more... bla bla...</div>
+<div class="block">Hello2</div>-->
+</body>
+</html>

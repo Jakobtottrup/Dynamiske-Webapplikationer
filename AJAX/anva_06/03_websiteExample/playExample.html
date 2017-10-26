@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        select {
+            visibility: hidden;
+        }
+/*        textarea readonly  {
+
+        }*/
+    </style>
+    <meta charset="UTF-8">
+    <title>Play Quiz</title>
+    <script src="scripts\jquery-3.2.1.min.js"></script>
+    <script src="scripts\jQuery_deserialize.js"></script>
+    <script src="scripts\formExampleCode.js"></script>
+    <script>
+        $(document).ready(function () {
+            var creator = prompt("Whos quiz would you like to take?");
+            console.log(creator);
+
+            var quiz = localStorage.getItem(creator);
+            console.log(quiz);
+        })
+
+
+    </script>
+</head>
+<body>
+<!--<div>
+    <h1>Play the quiz:</h1>
+    <p>Todo:</p>
+    <ul>
+        <li>Select quiz from localstorage</li>
+        <li>calculate score</li>
+
+    </ul>
+</div>-->
+<form id="myform">
+
+
+    <p>Try to save a quiz and then load it. It fucken works.</p>
+    <p>The code works by using unique names for all the forms. Nothing has been changed in the formExampleCode.js</p>
+    <div><input type="submit" name="g" value="Save" id="g"><input type="button" id="load" value="Load">
+    </div>
+
+    <br>
+    <div><input type="text" name="a" value="Title" id="a" class="creator"></div>
+    <div><input type="text" name="b" value="Creator" id="b" class="creator"></div>
+            <div><input type="hidden" name="c" value="3" id="c"></div>
+    <div id="question1">
+        <textarea readonly  name="q1" rows="3" cols="40">Question 1</textarea>
+        <div class="answers">
+            <div class="points"><select name="q1">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q1" value="Answer 1" id="a">12</div>
+            <div class="points"><select name="q1_p2">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q1" value="Answer 2" id="a">3</div>
+            <div class="points"><select name="q1_p3">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q1" value="Answer 3" id="a">III</div>
+        </div>
+    </div>
+    <div id="question2">
+        <textarea readonly  name="q2" rows="3" cols="40">Question 2</textarea>
+        <div class="answers">
+            <div class="points"><select name="q2">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q2" value="Answer 1" id="a">Dog</div>
+            <div class="points"><select name="q2_p2">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q2" value="Answer 2" id="a">Penguin</div>
+            <div class="points"><select name="q2_p3">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q3_a3" value="Answer 3" id="a">Kangaroo</div>
+        </div>
+    </div>
+    <div id="question3">
+        <textarea readonly  name="q3" rows="3" cols="40">Question 3</textarea>
+        <div class="answers">
+            <div class="points"> <select name="q3_p1">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q3" value="Answer 1" id="a">0</div>
+            <div class="points"><select name="q3_p2">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q3" value="Answer 2" id="a">1</div>
+            <div class="points"><select name="q3_p3">
+                <option value="0" selected="selected">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select></div>
+            <div><input type="radio" name="q3" value="Answer 3" id="a">Impossible</div>
+        </div>
+    </div>
+
+
+    <!--
+<div>
+<input type="radio" name="f" value="8" id="f">
+</div>
+-->
+</form>
+
+
+</body>
+</html>
