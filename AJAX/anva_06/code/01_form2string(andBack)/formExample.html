@@ -1,0 +1,104 @@
+<html>
+
+<head>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+// jQuery plugin to restore data to a form from a jQuery .serialize() string --- begin
+// from: http://jsfiddle.net/luken/4VVs3/
+$.fn.deserialize = function (serializedString) 
+{
+    var $form = $(this);
+    $form[0].reset();
+    serializedString = serializedString.replace(/\+/g, '%20');
+    var formFieldArray = serializedString.split("&");
+	// DEBUG console.log(formFieldArray);
+
+    $.each(formFieldArray, function(i, pair){
+        var nameValue = pair.split("=");
+        var name = decodeURIComponent(nameValue[0]);
+        var value = decodeURIComponent(nameValue[1]);
+        // Find one or more fields
+        var $field = $form.find('[name=' + name + ']');
+        // DEBUG console.log(name, value);
+        
+        if ($field[0].type == "radio" 
+            || $field[0].type == "checkbox") 
+        {
+            var $fieldWithValue = $field.filter('[value="' + value + '"]');            
+            var isFound = ($fieldWithValue.length > 0);
+            if (!isFound && value == "on") {
+                $field.first().prop("checked", true);
+            } else {
+                $fieldWithValue.prop("checked", isFound);
+            } 
+        } else {
+            $field.val(value);
+        }
+    });
+}
+// jQuery plugin to restore data to a form from a jQuery .serialize() string --- end
+
+
+$(document).ready(function(){
+
+	$( "#myform" ).submit(function( event ) {
+		event.preventDefault();
+		var text = $( this ).serialize();
+		console.log( 'saved this string ' + text );
+		
+		var slots = Object.keys(localStorage);
+		var slotName = prompt('Available slots are: ' + slots + '.'+ 
+				'\nName the slot you want to save to:');
+		localStorage.setItem(slotName, text );
+	});
+	
+	$( "#load" ).click(function( event ) {
+		event.preventDefault();
+		var slots = Object.keys(localStorage);
+		var slotName = prompt('Available slots are: ' + slots + '.'+ 
+		                      'Name the slot you want to load from:');
+		if (slotName==null) return;
+		var serializedString = localStorage.getItem(slotName);
+		if (serializedString){
+			console.log( 'loaded back this string ' +  serializedString );
+			// reset form values from json object
+			$( "#myform" ).deserialize(serializedString);
+		} else {
+			alert('Error: no slot with name **' + slotName + '** found!');
+		}
+	});
+	
+});
+</script>
+</head>
+
+<body>
+
+<form id="myform">
+  <div><input type="button" id="load" value="Load"></input></div>
+  <br/>
+  <div><input type="text" name="a" value="1" id="a"></div>
+  <div><input type="text" name="b" value="2" id="b"></div>
+  <div><input type="hidden" name="c" value="3" id="c"></div>
+  <div>
+    <textarea name="d" rows="8" cols="40">4</textarea>
+  </div>
+  <div><select name="e">
+    <option value="5" selected="selected">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select></div>
+  <div>
+    <input type="checkbox" name="f" value="8" id="f">
+  </div>
+  <div>
+    <input type="submit" name="g" value="Save" id="g">
+  </div>
+</form>
+
+<!--
+[<a href="..\index.html">back to index</a>]
+-->
+
+</body>
+</html>

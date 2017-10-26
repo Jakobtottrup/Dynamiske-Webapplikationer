@@ -1,0 +1,5 @@
+11:54 17/08/2017
+
+- added a deploy folder to clean up the structure
+- fixed package.json to work with local installation of browserify
+- added more scripts in package.json

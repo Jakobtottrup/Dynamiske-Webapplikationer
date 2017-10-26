@@ -1,0 +1,17 @@
+1.
+npm install
+
+2. 
+npm run build
+
+3. open in the browser
+	index_4.html
+	
+4. take a look the the newly created file
+	main_bin.js
+
+5. to ship/share your page you could also remove the 
+	node_modules 
+folder and the 
+	main_bin.js
+file. 

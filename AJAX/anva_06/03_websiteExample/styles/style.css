@@ -1,0 +1,37 @@
+body {
+    color: white;
+    background: #0f3e60;
+}
+
+a:link,
+a:hover {
+    color: black;
+}
+
+a:visited {
+    color: cyan;
+}
+
+.creator {
+    width: 150px;
+    margin-bottom: 5px;
+}
+
+#question1 textarea,
+#question2 textarea,
+#question3 textarea {
+    width: 332px;
+    resize: vertical;
+}
+
+.answers {
+    margin-left: 50px;
+}
+
+.answers input {
+    width: 250px;
+}
+
+.points {
+    float: left;
+}

@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script src="jquery.simpleWeather.js"></script>
+<script>
+$(document).ready(function() {
+
+	var cities = ['Austin, TX','sdfasfsadf','Odense, Denmark','Asti,Italy'];
+	var data =  {};
+
+	var _citiesRetrieved = 0;
+	var _allDone = function(){
+		console.log( 'complete set of data ' , data );
+		$("#weather").html('');
+		Object.keys(data).forEach(function(key,index) {
+			$("#weather").append('<p>'+key+': '+ data[key] + '</p>');
+		});
+	}
+	$("#weather").html('computing...');
+	for (var i=0;i<cities.length;i++){
+		  $.simpleWeather({
+			location: cities[i],
+			woeid: '',
+			unit: 'c',
+			success: function(weather) {
+			  // this.location   is the city name			  
+			  data[this.location] = weather.temp;
+
+			  _citiesRetrieved ++;
+			  // DEBUG console.log( data , _citiesRetrieved);
+			  
+			  if ( _citiesRetrieved == cities.length){
+				_allDone();
+			  }
+			},
+			error: function(error) {
+			  _citiesRetrieved ++;
+			}
+		  });
+	}
+	  
+});
+</script>
+</head>
+<body>
+	<h1>Multiple Cities</h1>
+	Reading weather data fo 4 cities, the second of which does not exist.
+	<div id="weather"></div>
+</body>
+</html>

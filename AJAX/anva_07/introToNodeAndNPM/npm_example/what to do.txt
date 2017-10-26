@@ -1,0 +1,20 @@
+1) type
+	npm install uniq
+	node app.js
+
+
+2) now try instead
+	npm init --y
+	npm install uniq --save
+	node app.js
+if you look at the  package.json  created, you will see that it contains the dependency on the  uniq  module.
+
+3) now DELETE the folder node_modules,
+and type
+	npm install
+	node app.js
+This time uniq is installed by NPM automatically, because it is listed in  package.json  ;)
+
+4) Finally, try:
+	npm test
+what happened there?

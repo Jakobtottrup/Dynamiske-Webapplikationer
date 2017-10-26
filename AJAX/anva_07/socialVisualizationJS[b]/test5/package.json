@@ -1,0 +1,21 @@
+{
+  "name": "test4",
+  "version": "1.0.0",
+  "description": "read many temperatures and compute statistics",
+  "scripts": {
+    "build": "npm run build_step1 && npm run build_step2",
+    "build_step1": "copyfiles index_5.html mystyle.css dist",
+    "build_step2": "browserify main.js -o dist/main.js",
+	
+	"postinstall": "npm run build"
+  },
+  "author": "Andrea Valente",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^14.4.0",
+    "chart.js": "^2.6.0",
+    "copyfiles": "^1.2.0",
+    "jquery": "^3.2.1",
+    "simpleweather": "^3.1.0"
+  }
+}

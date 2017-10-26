@@ -1,0 +1,11 @@
+body {
+	color: white;
+	background: #0f3e60;
+}
+
+a:link,a:hover {
+	color: black;
+}
+a:visited {
+	color: cyan;
+}

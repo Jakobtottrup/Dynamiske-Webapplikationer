@@ -1,0 +1,4 @@
+A simple page that:
+- fishes data from some social network/web API
+- processed it computing some statistics
+- visualizes the result using a js diagram library

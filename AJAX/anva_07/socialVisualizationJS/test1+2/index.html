@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script src="jquery.simpleWeather.js"></script>
+<script>
+$(document).ready(function() {
+
+	console.log( 'Austin, Texas' );
+
+  $.simpleWeather({
+    location: 'Austin, TX',
+    woeid: '',
+    unit: 'c',
+    success: function(weather) {
+		console.log( weather );
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+});
+</script>
+</head>
+<body>
+	<h1>Weather</h1>
+	<p>
+	look in the javascript console to see the result...
+	</p>
+</body>
+</html>
