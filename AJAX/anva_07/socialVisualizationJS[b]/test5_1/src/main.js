@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var unique = require('uniq');
 
 global.jQuery = $; // to support the jquery plugins
 var simpleWeather = require('simpleweather');
@@ -26,8 +27,20 @@ $(document).ready(function() {
 			cityNames.push( key );
 			values.push( data[key] );
 		});
-		
+        var sum = 0;
+        for( var i = 0; i < values.length; i++ ){
+            sum += parseInt( values[i], 10 );
+        }
+        var avg = sum/values.length;
+        console.log("Average temperature: "+ avg);
+        avg+="";
+
+        cityNames.push("Average");
+        values.push(avg);
+
 		console.log( cityNames , values );
+		values.pop();
+        console.log("Temps without repetitions (and without average):\n" + unique(values, false, false));
 		
 		var myChart = new Chart( $('#myChart')[0] , {
 			type: 'bar',
@@ -75,8 +88,12 @@ $(document).ready(function() {
 			}
 			
 		});
-			
-	}
+
+
+
+
+
+    };
 	
 	$("#weather").html('computing...');
 	for (var i=0;i<cities.length;i++){

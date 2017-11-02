@@ -1,0 +1,37 @@
+<html>
+<head>   
+<link rel="stylesheet" type="text/css" href="style/pigStyle.css">
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/pigLatin_v3_refactored.js"></script>
+<script>
+$(document).ready(function() {
+
+	$( "#myform" ).submit(function( event ) {
+		event.preventDefault();
+		var text = $('input[name="theText"]').val();
+		text = text.toLowerCase();
+		
+		var translation = englishToPigLatin( text );
+		$('input[name="transl"]').val( translation );
+	});
+});
+</script>
+</head>
+<body>
+	<h1>PigLatin translator</h1>
+	<p>
+	<form id="myform">
+	  <div>
+		<span>Text to translate</span>
+		<span><input type="text" name="theText" value="Andrea"></span>
+		<span> <input type="submit" value="translate"> </span>
+	  </div>
+	  <div>
+		<span>Translation</span>
+		<span><input type="text" name="transl" value=""></span>
+	  </div>
+	</form>
+	</p>
+</body>
+</html>

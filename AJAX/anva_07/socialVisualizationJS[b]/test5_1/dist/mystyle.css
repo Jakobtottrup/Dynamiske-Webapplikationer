@@ -1,0 +1,9 @@
+body {
+	background-color: linen;
+}
+
+.diagram {
+	width: 45%;
+	height: auto;
+	float: left;
+} 

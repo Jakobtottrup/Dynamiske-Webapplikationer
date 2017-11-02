@@ -6,8 +6,7 @@
     "build": "npm run build_step1 && npm run build_step2",
     "build_step1": "copyfiles index_5.html mystyle.css dist",
     "build_step2": "browserify main.js -o dist/main.js",
-	
-	"postinstall": "npm run build"
+    "postinstall": "npm run build"
   },
   "author": "Andrea Valente",
   "license": "ISC",

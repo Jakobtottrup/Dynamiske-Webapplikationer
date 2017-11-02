@@ -6,8 +6,7 @@
     "build": "npm run build_step1 && npm run build_step2",
     "build_step1": "copyfiles -f src/*.css src/*.html dist",
     "build_step2": "browserify src/main.js -o dist/main.js",
-	
-	"postinstall": "npm run build"
+    "postinstall": "npm run build"
   },
   "author": "Andrea Valente",
   "license": "ISC",
@@ -16,6 +15,7 @@
     "chart.js": "^2.6.0",
     "copyfiles": "^1.2.0",
     "jquery": "^3.2.1",
-    "simpleweather": "^3.1.0"
+    "simpleweather": "^3.1.0",
+    "uniq": "^1.0.1"
   }
 }

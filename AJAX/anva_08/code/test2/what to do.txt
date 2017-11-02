@@ -1,0 +1,45 @@
+16:54 30-Oct-17
+
+PIG LATIN
+=========
+
+1. If starts with consonant (or consonant cluster), then move the end and append "ay"
+"pig"    -> "igpay"
+"banana" -> "ananabay"
+"trash"  -> "ashtray"
+"happy"  -> "appyhay"
+"glove"  -> "oveglay"
+
+2. If starts with vowel or silent letter, then keep word along and append "way"
+"egg"    -> "eggway"
+"inbox"  -> "inboxway"
+"eight"  -> "eightway"
+
+=========================================================
+. First, remember have mocha installed globally (once before at least)
+	npm install -g mocha
+
+. Now, type:
+	npm test
+. then:
+	fix the code so the test work
+. now, add more tests to check that the piglatin translation works correctly for all the strings 
+. run 
+	npm test
+at each new test that you add, to see that all test so far work
+. fix your code more to make it pass the new tests
+
+
+
+
+
+. Now try to use instead the version 2: pigLatin_v2.js 
+which is already implemented, but might smell :)
+. test with 
+	npm test
+. then lint it!
+	eslint html/js/pigLatin_v2.js
+(in case eslint is not recognizes, try installing it globally
+	npm install -g eslint
+)
+
